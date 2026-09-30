@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3d092"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#aa7c11"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0d0f12"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="url(#goldGrad)" stroke-width="1.5" stroke-opacity="0.4"/>
+  <!-- Camera Body -->
+  <path d="M16 26C16 23.7909 17.7909 22 20 22H24.5L27 18H37L39.5 22H44C46.2091 22 48 23.7909 48 26V44C48 46.2091 46.2091 48 44 48H20C17.7909 48 16 46.2091 16 44V26Z" fill="#181b20" stroke="url(#goldGrad)" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Lens Rings -->
+  <circle cx="32" cy="35" r="9" stroke="url(#goldGrad)" stroke-width="2"/>
+  <circle cx="32" cy="35" r="5" fill="url(#goldGrad)"/>
+  <!-- Flash / Sensor Dot -->
+  <circle cx="43" cy="26" r="1.5" fill="#f3d092"/>
+</svg>
