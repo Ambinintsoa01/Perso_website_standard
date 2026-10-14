@@ -39,7 +39,7 @@
   <link rel="dns-prefetch" href="https://images.unsplash.com">
 
   <!-- Preload Hero LCP Image -->
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
 
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -109,11 +109,23 @@
           <li><a href="#hero" class="nav-link">Accueil</a></li>
           <li><a href="#behind-the-designs" class="nav-link">Behind the Designs</a></li>
           <li><a href="#galerie" class="nav-link">Galerie</a></li>
+          <li><a href="#avant-apres" class="nav-link">Avant / Après</a></li>
           <li><a href="#prestations" class="nav-link">Prestations</a></li>
           <li><a href="#simulateur" class="nav-link">Simulateur</a></li>
           <li><a href="#a-propos" class="nav-link">L'Approche</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
+        <div class="mobile-menu-footer">
+          <a href="#contact" class="btn-pill-cta btn-pill-accent mobile-drawer-cta">
+            <span>Get in touch</span>
+            <span class="cta-arrow-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="7" y1="17" x2="17" y2="7"/>
+                <polyline points="7 7 17 7 17 17"/>
+              </svg>
+            </span>
+          </a>
+        </div>
       </nav>
 
       <div class="nav-actions">
@@ -137,8 +149,8 @@
           </svg>
         </button>
 
-        <!-- Pill CTA button with arrow circle -->
-        <a href="#contact" class="btn-pill-cta">
+        <!-- Pill CTA button with arrow circle (desktop only) -->
+        <a href="#contact" class="btn-pill-cta header-cta-desktop">
           <span>Get in touch</span>
           <span class="cta-arrow-circle" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -151,9 +163,9 @@
         <!-- Mobile Drawer Toggle -->
         <button type="button" class="btn-mobile-menu" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="main-nav">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <line x1="3" y1="18" x2="21" y2="18"/>
+            <line x1="3" y1="6" x2="21" y2="6" class="hamburger-line line-top"/>
+            <line x1="3" y1="12" x2="21" y2="12" class="hamburger-line line-middle"/>
+            <line x1="3" y1="18" x2="21" y2="18" class="hamburger-line line-bottom"/>
           </svg>
         </button>
       </div>
@@ -176,8 +188,8 @@
         <!-- Silhouette Portrait Image blending into sunset atmosphere -->
         <div class="hero-silhouette-art" aria-hidden="true">
           <img 
-            src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1200&q=80" 
-            alt="Ambinintsoa Studio - Silhouette artistique baignée dans un coucher de soleil chaleureux" 
+            src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1200&q=80" 
+            alt="Ambinintsoa Studio - Silhouette artistique profil baignée dans un coucher de soleil chaleureux" 
             class="hero-silhouette-img"
             width="1200"
             height="800"
@@ -667,11 +679,11 @@
           </p>
         </div>
 
-        <!-- Interactive Split Slider -->
-        <div class="slider-container" aria-label="Comparateur visuel avant et après retouche">
+        <!-- Interactive Split Slider with CSS Clip-path (100% responsive, zero distortion) -->
+        <div class="slider-container" style="--split-pos: 50%;" aria-label="Comparateur visuel avant et après retouche">
           <!-- Background: RAW / Brut -->
           <div class="slider-img img-original">
-            <span class="slider-badge badge-raw">Brut Capteur (RAW)</span>
+            <span class="slider-badge badge-raw">Brut RAW</span>
             <img 
               src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&sat=-45&con=-25&q=75" 
               alt="Photo de mariage avant étalonnage, image brute aux couleurs neutres" 
@@ -682,9 +694,9 @@
             >
           </div>
 
-          <!-- Foreground: Retouched / Étalonné -->
+          <!-- Foreground: Retouched / Étalonné with clip-path -->
           <div class="slider-img img-modified">
-            <span class="slider-badge badge-edited">Finition Fine Art</span>
+            <span class="slider-badge badge-edited">Fine Art</span>
             <img 
               src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85" 
               alt="Photo de mariage après étalonnage Fine Art, tons chauds dorés et micro-contrastes soignés" 
@@ -694,6 +706,9 @@
               decoding="async"
             >
           </div>
+
+          <!-- Vertical Divider Line -->
+          <div class="slider-divider-line" aria-hidden="true"></div>
 
           <!-- Draggable Visual Handle -->
           <div class="slider-handle" aria-hidden="true">

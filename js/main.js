@@ -52,20 +52,42 @@ function applyTheme(theme) {
 function initMobileMenu() {
   const menuBtn = document.getElementById('mobile-menu-btn');
   const mainNav = document.getElementById('main-nav');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navLinks = document.querySelectorAll('.nav-link, .mobile-drawer-cta');
 
   if (!menuBtn || !mainNav) return;
 
-  menuBtn.addEventListener('click', () => {
+  function closeMenu() {
+    mainNav.classList.remove('open');
+    menuBtn.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  function toggleMenu() {
     const isOpen = mainNav.classList.toggle('open');
+    menuBtn.classList.toggle('open', isOpen);
     menuBtn.setAttribute('aria-expanded', String(isOpen));
-  });
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  menuBtn.addEventListener('click', toggleMenu);
 
   navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mainNav.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mainNav.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (mainNav.classList.contains('open') && !mainNav.contains(e.target) && !menuBtn.contains(e.target)) {
+      closeMenu();
+    }
   });
 }
 
@@ -235,21 +257,22 @@ function initLightbox() {
    ========================================================================== */
 function initBeforeAfterSlider() {
   const container = document.querySelector('.slider-container');
-  const modifiedImg = document.querySelector('.slider-img.img-modified');
   const handle = document.querySelector('.slider-handle');
   const rangeInput = document.querySelector('.slider-range-input');
 
-  if (!container || !modifiedImg || !handle || !rangeInput) return;
+  if (!container || !handle || !rangeInput) return;
 
   function updateSlider(val) {
-    modifiedImg.style.width = `${val}%`;
-    handle.style.left = `${val}%`;
+    container.style.setProperty('--split-pos', `${val}%`);
     handle.setAttribute('aria-valuenow', val);
   }
 
   rangeInput.addEventListener('input', (e) => {
     updateSlider(e.target.value);
   });
+
+  // Initialize at current value or 50%
+  updateSlider(rangeInput.value || 50);
 }
 
 /* ==========================================================================
