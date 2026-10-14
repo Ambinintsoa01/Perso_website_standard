@@ -29,12 +29,17 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <meta name="theme-color" content="#0a0c10">
 
+  <!-- Google Fonts: Plus Jakarta Sans for high-end agency typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <!-- Resource Hints for High Lighthouse Performance -->
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <link rel="dns-prefetch" href="https://images.unsplash.com">
 
   <!-- Preload Hero LCP Image -->
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=75" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
 
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -86,34 +91,34 @@
   <header class="site-header" id="site-header">
     <div class="container nav-wrapper">
       <a href="#" class="brand-logo" aria-label="Accueil Ambinintsoa Studio">
-        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" stroke="var(--accent-gold)" stroke-width="2"/>
-          <path d="M22 28C22 26 23.5 24 25.5 24H28L30 20H34L36 24H38.5C40.5 24 42 26 42 28V38C42 40 40.5 42 38.5 42H25.5C23.5 42 22 40 22 38V28Z" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="32" cy="33" r="5" stroke="var(--accent-gold)" stroke-width="2"/>
-        </svg>
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+            <circle cx="16" cy="16" r="5" fill="var(--accent-color)"/>
+          </svg>
+        </span>
         <span class="brand-name">
-          <span class="brand-title">AMBININTSOA</span>
-          <span class="brand-subtitle">Studio Photographie</span>
+          <span class="brand-title">Ambinintsoa</span>
+          <span class="brand-subtitle">Studio</span>
         </span>
       </a>
 
       <!-- Desktop & Mobile Navigation Links -->
       <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
         <ul class="nav-list">
+          <li><a href="#hero" class="nav-link">Accueil</a></li>
+          <li><a href="#behind-the-designs" class="nav-link">Behind the Designs</a></li>
           <li><a href="#galerie" class="nav-link">Galerie</a></li>
-          <li><a href="#avant-apres" class="nav-link">Avant / Après</a></li>
           <li><a href="#prestations" class="nav-link">Prestations</a></li>
           <li><a href="#simulateur" class="nav-link">Simulateur</a></li>
           <li><a href="#a-propos" class="nav-link">L'Approche</a></li>
-          <li><a href="#avis" class="nav-link">Témoignages</a></li>
-          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <a href="#contact" class="btn btn-primary btn-sm">Réserver une date</a>
       </nav>
 
       <div class="nav-actions">
         <!-- Theme Toggle Button -->
-        <button type="button" class="btn-theme-toggle" id="theme-toggle" aria-label="Activer le mode clair" title="Basculer le thème">
+        <button type="button" class="btn-theme-toggle" id="theme-toggle" aria-label="Basculer entre thème clair et thème sombre" title="Basculer le thème">
           <!-- Sun Icon -->
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="5"/>
@@ -131,6 +136,17 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
+
+        <!-- Pill CTA button with arrow circle -->
+        <a href="#contact" class="btn-pill-cta">
+          <span>Get in touch</span>
+          <span class="cta-arrow-circle" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="7" y1="17" x2="17" y2="7"/>
+              <polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </span>
+        </a>
 
         <!-- Mobile Drawer Toggle -->
         <button type="button" class="btn-mobile-menu" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="main-nav">
@@ -150,61 +166,190 @@
   <main id="main-content">
 
     <!-- ========================================================================
-         HERO SECTION (LCP Optimized)
+         HERO SECTION (Folioblox Style - Warm Sunset Curved Card)
          ======================================================================== -->
-    <section class="hero-section" aria-label="Accueil et présentation">
-      <div class="hero-background">
-        <!-- Optimized Hero Image loaded with High Priority -->
-        <img 
-          src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=75" 
-          alt="Couple de mariés au coucher du soleil dans un champ doré sous une lumière poétique" 
-          class="hero-bg-img" 
-          width="1400" 
-          height="933" 
-          fetchpriority="high"
-          loading="eager"
-          decoding="async"
-        >
-        <div class="hero-overlay"></div>
+    <section class="hero-section" id="hero" aria-label="Accueil et présentation">
+      <div class="hero-card-wrapper">
+        <!-- Ambient Sunset Gradient & Glow Backdrop -->
+        <div class="hero-gradient-canvas" aria-hidden="true"></div>
+
+        <!-- Silhouette Portrait Image blending into sunset atmosphere -->
+        <div class="hero-silhouette-art" aria-hidden="true">
+          <img 
+            src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1200&q=80" 
+            alt="Ambinintsoa Studio - Silhouette artistique baignée dans un coucher de soleil chaleureux" 
+            class="hero-silhouette-img"
+            width="1200"
+            height="800"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+          >
+          <div class="hero-vignette-overlay"></div>
+        </div>
+
+        <div class="container hero-inner-container">
+          <!-- Main Hero Split Row -->
+          <div class="hero-main-row">
+            <!-- Left Headline Column -->
+            <div class="hero-left-col">
+              <span class="hero-greeting">Hey, I'm a</span>
+              <h1 class="hero-main-title">
+                Creative<br>
+                Director
+              </h1>
+              <p class="hero-badge-caption">Photographe d'Auteur & Direction Visuelle</p>
+            </div>
+
+            <!-- Right Statement / Quote Column -->
+            <div class="hero-right-col">
+              <h2 class="hero-statement-lead">Great design should feel invisible.</h2>
+              <p class="hero-statement-text">
+                From logo to language, I build brands and capture visual stories that connect and convert. De l'émotion brute aux célébrations d'exception.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bottom Services Numbered Pills Grid -->
+          <div class="hero-services-bar" role="list" aria-label="Disciplines et expertises">
+            <div class="hero-service-item" role="listitem">
+              <span class="service-col-idx">// 01</span>
+              <span class="service-col-title">Brand Strategy</span>
+            </div>
+            <div class="hero-service-item" role="listitem">
+              <span class="service-col-idx">// 02</span>
+              <span class="service-col-title">Brand Identity Design</span>
+            </div>
+            <div class="hero-service-item" role="listitem">
+              <span class="service-col-idx">// 03</span>
+              <span class="service-col-title">Packaging Design</span>
+            </div>
+            <div class="hero-service-item" role="listitem">
+              <span class="service-col-idx">// 04</span>
+              <span class="service-col-title">Creative Direction</span>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="container hero-content">
-        <div class="hero-badge">
-          <span class="pulse-dot" aria-hidden="true"></span>
-          <span>Saison 2026 - 2027 : Réservations ouvertes</span>
+    <!-- ========================================================================
+         TRUSTED BY BRANDS / SOCIAL PROOF BAR
+         ======================================================================== -->
+    <section class="brands-proof-section" aria-label="Marques et clients de confiance">
+      <div class="container brands-proof-container">
+        <span class="brands-proof-label">Trusted by Brands I've Helped Shape</span>
+        <div class="brands-proof-list">
+          <div class="brand-item">
+            <span class="brand-glyph" aria-hidden="true">◯</span>
+            <span class="brand-name">Supa Blox</span>
+          </div>
+          <div class="brand-item">
+            <span class="brand-glyph" aria-hidden="true">⧖</span>
+            <span class="brand-name">Hype Blox</span>
+          </div>
+          <div class="brand-item">
+            <span class="brand-glyph" aria-hidden="true">◐</span>
+            <span class="brand-name">Frame Blox</span>
+          </div>
+          <div class="brand-item">
+            <span class="brand-glyph" aria-hidden="true">◑</span>
+            <span class="brand-name">Ultra Blox</span>
+          </div>
+          <div class="brand-item">
+            <span class="brand-glyph" aria-hidden="true">◈</span>
+            <span class="brand-name">Vogue France</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         BEHIND THE DESIGNS SECTION (Directly matching reference image)
+         ======================================================================== -->
+    <section class="section behind-designs-section" id="behind-the-designs" aria-labelledby="btd-title">
+      <div class="container">
+        <div class="btd-header">
+          <div class="btd-header-left">
+            <span class="btd-tag">Behind the Designs</span>
+            <h2 class="btd-title" id="btd-title">
+              Shaping Experiences That Make Life Simpler
+            </h2>
+          </div>
+          <div class="btd-header-right">
+            <p class="btd-desc">
+              I'm a product designer and visual artist focused on building clean, intuitive interfaces and capturing soulful moments that solve real-world problems.
+            </p>
+            <div class="btd-cta-row">
+              <span class="btd-cta-subtext">Let's Build Something Meaningful Together</span>
+              <a href="#contact" class="btn-pill-cta btn-pill-accent">
+                <span>Get in touch</span>
+                <span class="cta-arrow-circle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"/>
+                    <polyline points="7 7 17 7 17 17"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <h1 class="hero-title">
-          L'Art d'Immortaliser vos <span>Émotions Vraies</span>
-        </h1>
+        <!-- The 3 vertical cards from the screenshot -->
+        <div class="btd-cards-grid">
+          <!-- Card 1: Minimalist Black Puffer Jacket on hanger -->
+          <article class="btd-card">
+            <div class="btd-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=700&q=80" 
+                alt="Veste matelassée noire élégante sur cintre épuré" 
+                loading="lazy" 
+                width="700" 
+                height="900"
+                class="btd-card-img"
+              >
+            </div>
+            <div class="btd-card-overlay">
+              <span class="btd-card-badge">// 01 Minimal Wardrobe</span>
+              <h3 class="btd-card-name">Forme & Structure Épurée</h3>
+            </div>
+          </article>
 
-        <p class="hero-description">
-          Photographe d’auteur dédié aux mariages de prestige, soirées exclusives, fêtes intenses et grandes expéditions à travers le monde. Chaque cliché capture la poésie d'un instant spontané.
-        </p>
+          <!-- Card 2: Artistic Model with headphones -->
+          <article class="btd-card">
+            <div class="btd-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80" 
+                alt="Portrait artistique de profil avec casque audio en clair-obscur" 
+                loading="lazy" 
+                width="700" 
+                height="900"
+                class="btd-card-img"
+              >
+            </div>
+            <div class="btd-card-overlay">
+              <span class="btd-card-badge">// 02 Sound & Emotion</span>
+              <h3 class="btd-card-name">Immersion & Fréquence</h3>
+            </div>
+          </article>
 
-        <div class="hero-cta-group">
-          <a href="#galerie" class="btn btn-primary">Explorer les Clichés</a>
-          <a href="#simulateur" class="btn btn-secondary">Simuler votre Devis</a>
-        </div>
-
-        <!-- Key Achievements Bar -->
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-number">12+</span>
-            <span class="stat-label">Années d'expérience</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">380+</span>
-            <span class="stat-label">Événements couverts</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">24</span>
-            <span class="stat-label">Pays explorés</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Clients comblés</span>
-          </div>
+          <!-- Card 3: Minimalist cosmetic bottle on rock surface -->
+          <article class="btd-card">
+            <div class="btd-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=80" 
+                alt="Flacon cosmétique de luxe en verre noir posé sur une roche minérale" 
+                loading="lazy" 
+                width="700" 
+                height="900"
+                class="btd-card-img"
+              >
+            </div>
+            <div class="btd-card-overlay">
+              <span class="btd-card-badge">// 03 Organic Matter</span>
+              <h3 class="btd-card-name">Matière & Essence Pure</h3>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -747,7 +892,7 @@
               <div class="form-group">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                   <label for="est-hours" class="form-label" style="margin-bottom: 0;">Durée de Présence Estimée</label>
-                  <span id="est-hours-val" style="font-weight: 700; color: var(--accent-gold);">8 h</span>
+                  <span id="est-hours-val" style="font-weight: 700; color: var(--accent-color);">8 h</span>
                 </div>
                 <input 
                   type="range" 
@@ -756,7 +901,7 @@
                   max="16" 
                   value="8" 
                   class="form-range" 
-                  style="width: 100%; accent-color: var(--accent-gold);"
+                  style="width: 100%; accent-color: var(--accent-color);"
                   aria-label="Sélectionnez le nombre d'heures de reportage"
                 >
               </div>
@@ -1126,8 +1271,8 @@
               </div>
             </div>
 
-            <div style="background: rgba(226, 179, 110, 0.08); border: 1px solid var(--border-active); padding: 18px; border-radius: var(--radius-md);">
-              <span style="font-weight: 700; color: var(--accent-gold); font-size: 0.9rem; display: block; margin-bottom: 4px;">⚡ Réponse Express Garantie</span>
+            <div style="background: var(--accent-soft); border: 1px solid var(--border-hover); padding: 18px; border-radius: var(--radius-md);">
+              <span style="font-weight: 700; color: var(--accent-color); font-size: 0.9rem; display: block; margin-bottom: 4px;">⚡ Réponse Express Garantie</span>
               <p style="font-size: 0.85rem; margin-bottom: 0;">Nous traitons chaque demande sous un délai maximum de 24h ouvrées.</p>
             </div>
           </div>
@@ -1233,14 +1378,15 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="#" class="brand-logo" aria-label="Accueil Ambinintsoa Studio">
-            <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <circle cx="32" cy="32" r="30" stroke="var(--accent-gold)" stroke-width="2"/>
-              <path d="M22 28C22 26 23.5 24 25.5 24H28L30 20H34L36 24H38.5C40.5 24 42 26 42 28V38C42 40 40.5 42 38.5 42H25.5C23.5 42 22 40 22 38V28Z" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="32" cy="33" r="5" stroke="var(--accent-gold)" stroke-width="2"/>
-            </svg>
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+                <circle cx="16" cy="16" r="5" fill="var(--accent-color)"/>
+              </svg>
+            </span>
             <span class="brand-name">
-              <span class="brand-title">AMBININTSOA</span>
-              <span class="brand-subtitle">Studio Photographie</span>
+              <span class="brand-title">Ambinintsoa</span>
+              <span class="brand-subtitle">Studio</span>
             </span>
           </a>
           <p>

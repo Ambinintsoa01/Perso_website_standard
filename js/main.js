@@ -34,14 +34,15 @@ function initThemeToggle() {
 }
 
 function applyTheme(theme) {
-  if (theme === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-    const toggleBtn = document.getElementById('theme-toggle');
-    if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Activer le mode sombre');
-  } else {
-    document.documentElement.removeAttribute('data-theme');
-    const toggleBtn = document.getElementById('theme-toggle');
-    if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Activer le mode clair');
+  document.documentElement.setAttribute('data-theme', theme);
+  const toggleBtn = document.getElementById('theme-toggle');
+  if (toggleBtn) {
+    toggleBtn.setAttribute('aria-label', theme === 'light' ? 'Activer le mode sombre' : 'Activer le mode clair');
+    toggleBtn.setAttribute('title', theme === 'light' ? 'Activer le mode sombre' : 'Activer le mode clair');
+  }
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  if (metaThemeColor) {
+    metaThemeColor.setAttribute('content', theme === 'light' ? '#f6f7fa' : '#0d1015');
   }
 }
 
